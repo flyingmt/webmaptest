@@ -4,14 +4,16 @@ Webmaptest.ApplicationRoute = Ember.Route.extend({
     model: function () {
         var url = "http://50.117.0.42:1337/List/GetList/1/0?format=json";
         console.log(url);
-        return Promise.all([$.getJSON(url)]).then(function(maps) {
 
-            for (var guid in maps.ListInfomation)
-            {
-                console.log(maps.ListInfomation[guid].DisplayName)
-            }
-        })
+        return Ember.$.getJSON(url)
+            //returns Promise object
+            .then(function(data) {
 
-        return ['red', 'yellow', 'blue'];
+                console.log(data);
+                return data;
+
+                //return ['red', 'yellow', 'blue'];
+
+        });
     }
 });
