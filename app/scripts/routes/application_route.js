@@ -2,11 +2,11 @@ Webmaptest.ApplicationRoute = Ember.Route.extend({
     // admittedly, this should be in IndexRoute and not in the
     // top level ApplicationRoute; we're in transition... :-)
     model: function () {
+        var url = "http://50.117.0.42:1337/List/GetList/1/0?format=json";
 
-        var url = "";
-
-
-
+        return Promise.all([$.getJSON(url)]).then(function(maps) {
+            console.log(maps);
+        })
 
         return ['red', 'yellow', 'blue'];
     }
