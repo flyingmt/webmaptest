@@ -7,17 +7,33 @@ Webmaptest.ApplicationRoute = Ember.Route.extend({
 
         return Ember.$.getJSON(url)
             //returns Promise object
-            .then(function(maps) {
+            .then(function(data) {
+                console.log(data);
+                var maps = [];
 
-                console.log(maps);
+                for (var guid in data.ListInfomation) {
+                    console.log(data.ListInfomation[guid].DisplayName);
 
-                for (var guid in maps.ListInfomation) {
-                    console.log(maps.ListInfomation[guid].DisplayName);
+                    for (var guid_2 in data.ListInfomation[guid].Children)
+                    {
+                        console.log(data.ListInfomation[guid].Children[guid_2].DisplayName);
+                    }
                 }
 
-                return maps;
+                return data;
 
                 //return ['red', 'yellow', 'blue'];
+
+
+                /*
+                artists.push(FirstEmber.Artist.create({
+                    id: i + 1,
+                    type: 'artist',
+                    name: entry.name,
+                    hotttnesss: entry.hotttnesss,
+                    enid: entry.id
+                }));
+                */
 
         });
     }
