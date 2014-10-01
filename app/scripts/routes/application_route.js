@@ -5,7 +5,11 @@ Webmaptest.ApplicationRoute = Ember.Route.extend({
         var url = "http://50.117.0.42:1337/List/GetList/1/0?format=json";
 
         return Promise.all([$.getJSON(url)]).then(function(maps) {
-            console.log(maps);
+
+            for (var guid in maps.ListInfomation)
+            {
+                console.log(maps.ListInfomation[guid].DisplayName)
+            }
         })
 
         return ['red', 'yellow', 'blue'];
