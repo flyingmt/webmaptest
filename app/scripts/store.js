@@ -1,0 +1,1 @@
+Webmaptest.ApplicationAdapter = DS.FixtureAdapter;
