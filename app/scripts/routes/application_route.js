@@ -12,15 +12,16 @@ Webmaptest.ApplicationRoute = Ember.Route.extend({
                 var maps = [];
 
                 for (var guid in data.ListInfomation) {
-                    console.log(data.ListInfomation[guid].DisplayName);
+                    var level1 = data.ListInfomation[guid];
+                    console.log(level1.DisplayName);
 
-                    for (var guid_2 in data.ListInfomation[guid].Children)
+                    for (var guid_2 in level1.Children)
                     {
-                        console.log("-- " + data.ListInfomation[guid].Children[guid_2].DisplayName);
+                        console.log("-- " + level1.Children[guid_2].DisplayName);
 
-                        for (var guid_3 in data.ListInfomation[guid].Children[guid_2].Children)
+                        for (var guid_3 in level1.Children[guid_2].Children)
                         {
-                            console.log("-- -- " + data.ListInfomation[guid].Children[guid_2].Children[guid_3].DisplayName);
+                            console.log("-- -- " + level1.Children[guid_2].Children[guid_3].DisplayName);
 
 
                         }
